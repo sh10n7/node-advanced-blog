@@ -7,14 +7,20 @@ const mongoose = require("mongoose");
 // ejsの読み込み
 app.set("view engine", "ejs")
 
+const mongoURL = "mongodb://db:27017/db"
+// || "mongodb+srv://shion_y:cvxvhAm5B8sCQl17@cluster0.tslmift.mongodb.net/?retryWrites=true&w=majority"
+// "mongodb:DBコンテナ名:27017/データベース名(任意)"
+// const mongoURL = "mongodb://db:27017/db"
 
 // mongoose.connect(データベースURL)で、MongoDBと接続をする。
-mongoose.connect("mongodb+srv://shion_y:cvxvhAm5B8sCQl17@cluster0.tslmift.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect(mongoURL)
 .then(() => {
   console.log("Success: Connected to MongoDB")
 }).catch((error) => {
   console.log("Failure: Unconnected to MongoDB")
 })
+
+// mongoose.connect("mongodb://mongo:27017/test")
 
 // スキーマとModelの作成
 const Schema = mongoose.Schema;
